@@ -40,5 +40,17 @@ public class BookType {
 		super();
 		this.bookTypeName = bookTypeName;
 	}
+	public BookType(int id, String bookTypeName, String bookTypeDesc) {
+		super();
+		this.id = id;
+		this.bookTypeName = bookTypeName;
+		this.bookTypeDesc = bookTypeDesc;
+	}
+	
+	// 为类别下拉框重写toString
+	@Override
+	public String toString() {
+		return bookTypeName;
+	}
 	
 }

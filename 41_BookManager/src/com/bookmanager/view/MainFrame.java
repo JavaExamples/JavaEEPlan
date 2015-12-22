@@ -78,9 +78,23 @@ public class MainFrame extends JFrame {
 		menu.add(menu_3);
 		
 		JMenuItem menuItem_1 = new JMenuItem("图书添加");
+		menuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BookAddInternalFrame bookInternalFrame = new BookAddInternalFrame();
+				bookInternalFrame.setVisible(true);
+				desktopPane.add(bookInternalFrame);
+			}
+		});
 		menu_3.add(menuItem_1);
 		
 		JMenuItem menuItem_2 = new JMenuItem("图书维护");
+		menuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BookManageInternalFrame bookManageInternalFrame = new BookManageInternalFrame();
+				bookManageInternalFrame.setVisible(true);
+				desktopPane.add(bookManageInternalFrame );
+			}
+		});
 		menu_3.add(menuItem_2);
 		
 		JMenuItem menuItem = new JMenuItem("安全退出");
