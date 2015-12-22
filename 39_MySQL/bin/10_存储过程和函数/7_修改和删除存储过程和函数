@@ -1,0 +1,10 @@
+// 1.修改存储过程和函数
+ALTER {PROCEDURE | FUNCTION} sp_name [characteristic...]
+characteristic:
+{CONTAINS SQL | NO SQL | READS SQL DATA | MODIFIES SQL DATA}
+|SQL SECURITY{DEFINER | INVOKER}
+COMMENT 'string': 注释信息
+
+
+// 2.删除存储过程和函数
+DROP {PROCEDURE | FUNCTION} sp_name

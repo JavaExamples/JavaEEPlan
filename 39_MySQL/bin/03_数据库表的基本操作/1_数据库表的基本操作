@@ -1,0 +1,44 @@
+// 创建表
+CREATE TABLE 表名 ( 	属性名 数据类型 [完整性约束条件],
+				  	属性名 数据类型 [完整性约束条件],
+				  	.
+				  	.
+				  	.
+				  	属性名 数据类型 [完整性约束条件],
+				  	);
+
+约束条件
+PRIMARY KEY			标识该属性为该表的主键, 可以唯一的标识对应的记录
+FOREIGN KEY			标识该属性为该表的外键, 与某表的主键关联
+NOT NULL			标识该属性不能为空
+UNIQUE				标识该属性的值是唯一的
+AUTO_INCREMENT		标识该属性的值自动增加
+DEFAULT				为该属性设置默认值
+
+CREATE TABLE t_book(
+					id int primary key auto_increment,
+					bookName varchar(20),
+					author varchar(10),
+					price decimal(6,2),
+					bookTypeId int,
+					CONSTRAINT `fk` FOREIGN KEY (`bookTypeId`) references `t_bookType`(`id`)
+					);
+//PS: 
+	  1. ` 为esc下的那个字符
+	  2. // 创建外键
+	  	 CONSTRAINT `外键名` FOREIGN KEY (`外键列列名`) references `被指向表表名`(`被指向表的引用列列明`)
+
+// 查看表结构
+1. desc 表名: 查看表的基本结构
+2. show create table 表名: 查看表详细结构
+
+// 修改表
+1. 修改表名: ALTER TABLE 旧表名 RENAME 新表名;
+2. 修改字段: ALTER TABLE 表名 CHANGE 旧属性名 新属性名 新数据类型;
+3. 添加字段: ALTER TABLE 表名 ADD 属性名1 数据类型 [完整性约束条件] [FIRST | AFTER 属性名2];
+4. 删除字段: ALTER TABLE 表名 DROP 属性名;
+
+// 删除表:
+   DROP TABLE 表名
+//PS:
+   若t2中有外键指向t1中的某一列, 则t2删除前, 无法直接删除t1

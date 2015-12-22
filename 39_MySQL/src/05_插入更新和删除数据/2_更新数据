@@ -1,0 +1,5 @@
+// 更新数据
+UPDATE 表名
+	SET 属性名1 = 取值1, 属性名2 = 取值2, ..., 属性名n = 取值n WHERE 条件表达式;
+[例如1: UPDATE t_book SET bookName = "Java编程思想(新)", price = 120 WHERE id = 1;](更改id为1的记录)
+[例如2: UPDATE t_book SET bookName = "模糊查询更改" WHERE bookName LIKE "%我爱我家%"](模糊查询更改)

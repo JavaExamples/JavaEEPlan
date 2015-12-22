@@ -1,0 +1,55 @@
+// 连接查询
+	// 创建表
+CREATE DATABASE `db_book`;
+
+USE `db_book`;
+
+/*Table structure for table `t_book` */
+
+DROP TABLE IF EXISTS `t_book`;
+
+CREATE TABLE `t_book` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookName` varchar(20) DEFAULT NULL,
+  `price` decimal(6,2) DEFAULT NULL,
+  `author` varchar(20) DEFAULT NULL,
+  `bookTypeId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_book` */
+
+insert  into `t_book`(`id`,`bookName`,`price`,`author`,`bookTypeId`) values (1,'Java编程思想','100.00','埃史尔',1),(2,'Java从入门到精通','80.00','李钟尉',1),(3,'三剑客','70.00','大仲马',2),(4,'生理学(第二版)','24.00','刘先国',4);
+
+/*Table structure for table `t_booktype` */
+
+DROP TABLE IF EXISTS `t_booktype`;
+
+CREATE TABLE `t_booktype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookTypeName` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_booktype` */
+
+insert  into `t_booktype`(`id`,`bookTypeName`) values (1,'计算机类'),(2,'文学类'),(3,'教育类');
+
+// 笛卡尔乘积
+SELECT * FROM t_book, t_booktype [此时显示数据量为两个表数据量的笛卡尔乘积]
+
+// 连接查询
+链接查询是将两个或两个以上的表按照某个条件连接起来, 从中选取需要的数据
+	// 内连接查询
+	内连接查询可以查询两个或者两个以上的表
+[例如1: SELECT * FROM t_book, t_booktype WHERE t_book.bookTypeId = t_booktype.id]
+[例如2: SELECT bookName, author, bookTypeName FROM t_book, t_booktype WHERE t_book.bookTypeId = t_booktype.id;]
+[例如3: SELECT tb.bookName, tb.author, tby.bookTypeName FROM t_book tb, t_booktype tby WHERE tb.bookTypeId = tby.id;]
+(例如3备注: tb 和 tby 为 t_book 和 t_booktype 的别名)
+
+	// 外连接
+	外连接可以查出某一张表的所有信息
+SELECT 属性名列表 FROM 表名1 LEFT|RIGHT JOIN 表名2 ON 表名1.属性名1 = 表名2.属性名2;[LEFT RIGHT 表示要显示左表或右表的所有信息]
+[例如1: SELECT * FROM t_book tb LEFT JOIN t_booktype tby ON tb.bookTypeId = tby.id;](左外连接)
+[例如2: SELECT * FROM t_book tb RIGHT JOIN t_booktype tby ON tb.bookTypeId = tby.id;](右外连接)
+[例如3: SELECT * FROM t_book tb LEFT JOIN t_booktype tby ON tb.bookTypeId = tby.id WHERE tb.price > 70;](左外连接, 且书的价格大于70)

@@ -1,0 +1,3 @@
+// 删除数据
+DELETE FROM 表名 [WHERE 条件表达式];
+[例如: DELETE FROM t_book WHERE bookName = "模糊查询更改";]

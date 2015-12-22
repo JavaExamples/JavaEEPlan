@@ -1,0 +1,13 @@
+// 事务的概念
+事务处理在数据库开发中有非常重要的作用, 所谓事务就是所有的操作要么一起成功, 要么一起失败
+事务本身具有原子性(Atomicity), 一致性(Consistency), 隔离性[独立性(Isolation)], 持久性(Durability)
+
+// MySQL对事务的支持
+SET AUTOCOMMIT = 0 				取消自动提交处理, 开启事务处理
+SET AUTOCOMMIT = 1				打开自动提交处理, 关闭事务处理
+STARTRANSACTION					启动事务
+BEGIN							启动事务, 相当于执行START TRANSACTION
+COMMIT							提交事务
+ROLLBACK						回滚全部事务
+SAVEPOINT 事务保存点名称			设置事务保存点
+ROLLBACK TO SAVEPOINT 保存点名称	回滚到保存点

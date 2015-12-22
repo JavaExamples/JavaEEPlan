@@ -1,0 +1,23 @@
+// 创建视图
+CREATE [ALGORITHM = {UNDEFIEND | MERGE | TEMPTABLE}]
+		VIEW 视图名 [(属性清单)]
+		AS SELECT语句
+		[WITH [CASCADED | LOCAL] CHECK OPTION];
+ALGORITHM 是可选参数, 表示视图选择的算法;
+	UNDEFINED表示MySQL将自动选择所需要使用的算法
+	MERGE表示将使用视图的语句与视图定义合并起来, 使得试图定义的某一部分取代语句的对应部分
+	TEMPTABLE表示将视图的结果存入临时表, 然后使用临时表执行语句
+"视图名"参数表示要创建的视图的名称
+"属性清单"是可选参数, 制定了视图中各种属性的名词, 默认情况下与SELECT语句中查询的属性相同
+"SELECT语句"参数是一个完整的查询语句, 标识从某个表查出某些满足条件的记录, 将这些记录导入视图中
+WITH CHECK OPTION是可选参数, 表示更新视图时要保证在该视图的权限范围之内
+	CASECADE是可选参数, 表示更新视图时要满足所有相关视图和表的条件, 该参数为默认值
+	LOCAL表示更新视图时, 满足该视图本身的定义条件即可
+
+// 1.在单表上创建视图
+[例如1: CREATE VIEW 视图名1 AS SELECT * FROM t_book;]
+[例如2: CREATE VIEW 视图名2 AS SELECT bookName, price FROM t_book;]
+[例如3: CREATE VIEW 视图名3(列名1, 列名2) AS SELECT bookName, price FROM t_book;]
+// 2.在多表上创建视图
+[例如: CREATE VIEW 视图名4(列名1, 列名2) AS SELECT tb.bookName, tby.bookTypeName FROM t_book tb, t_booktype tby WHERE tb.bookTypeId = tby.id;]
+

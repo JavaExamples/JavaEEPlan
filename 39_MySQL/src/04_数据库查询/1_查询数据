@@ -1,0 +1,122 @@
+// 单表查询
+	// 创建表
+CREATE TABLE `t_student` (
+	`id` INT,
+	`stuName` VARCHAR(60),
+	`age` INT,
+	`sex` VARCHAR(10),
+	`gradeName` VARCHAR(60)
+);
+	// 插入数据
+INSERT INTO `t_student` (`id`, `stuName`, `age`, `sex`, `gradeName`) VALUES (1, '张三', 11, '男', '一年级');
+INSERT INTO `t_student` (`id`, `stuName`, `age`, `gradeName`) VALUES (2, '李四', 12, '二年级');
+INSERT INTO `t_student` (`id`, `stuName`, `age`, `sex`, `gradeName`) VALUES (3, '王五', 12, '女', '二年级');
+INSERT INTO `t_student` (`id`, `stuName`, `age`, `gradeName`) VALUES (4, '赵六', 14, '四年级');
+INSERT INTO `t_student` (`id`, `stuName`, `age`, `sex`, `gradeName`) VALUES (5, '小明', 12, '女', '二年级');
+INSERT INTO `t_student` (`id`, `stuName`, `age`, `sex`, `gradeName`) VALUES (6, '小刚', 13, '男', '三年级');
+INSERT INTO `t_student` (`id`, `stuName`, `age`, `sex`, `gradeName`) VALUES (7, '小智慧', 11, '女', '一年级');
+INSERT INTO `t_student` (`id`, `stuName`, `age`, `sex`, `gradeName`) VALUES (8, '小红', 13, '男', '三年级');
+
+
+// 1.查询所有字段
+SELECT 字段1, 字段2, 字段3... ,字段n FROM 表名
+SELECT * FROM 表名
+[例如: SELECT * FROM t_student;]
+
+// 2.查询指定字段
+SELECT 指定字段1, 指定字段2... ,指定字段n FROM 表名
+[例如: SELECT id, stuName FROM t_student;]
+
+// 3.WHERE条件查询
+SELECT 字段1, 字段2, 字段3... ,字段n FROM 表名 WHERE 条件表达式
+[例如: SELECT * FROM t_student WHERE id = 1;]
+
+// 4.带IN关键字查询
+SELECT 字段1, 字段2, 字段3... ,字段n FROM 表名 WHERE 字段 [NOT] IN (元素1, 元素2, 元素3...)
+[例如: SELECT * FROM t_student WHERE age NOT IN (11, 12);]
+
+// 5.带BETWEEN AND的范围查询
+SELECT 字段1, 字段2, 字段3... ,字段n FROM 表名 WHERE 字段 [NOT] BETWEEN 取值1 AND 取值2
+[例如: SELECT * FROM t_student WHERE age NOT BETWEEN 11 AND 13;]
+
+// 6.带LIKE的模糊查询
+SELECT 字段1, 字段2, 字段3... ,字段n FROM 表名 WHERE 字段 [NOT] LIKE 字符串
+%: 任意字符
+_: 单个字符
+[例如: SELECT * FROM t_student WHERE stuName LIKE '小';](无结果)
+[例如: SELECT * FROM t_student WHERE stuName LIKE '小%';](小X & 小XX...)[X>=0]
+[例如: SELECT * FROM t_student WHERE stuName LIKE '%小%';](XX...小XX...)[X>=0]
+[例如: SELECT * FROM t_student WHERE stuName LIKE '小_';](小X)[X=1]
+
+// 7.空值查询
+SELECT 字段1, 字段2, 字段3... ,字段n FROM 表名 WHERE 字段 IS [NOT] NULL
+[例如: SELECT * FROM t_student WHERE sex IS NULL;]
+
+// 8.带AND的多条件查询
+SELECT 字段1, 字段2, 字段3... ,字段n FROM 表名 WHERE 条件表达式1 AND 条件表达式2 [...AND 条件表达式n]
+[例如: SELECT * FROM t_student WHERE age = 11 AND sex = '女';]
+
+// 9.带OR的多条件查询
+SELECT 字段1, 字段2, 字段3... ,字段n FROM 表名 WHERE 条件表达式1 OR 条件表达式2 [...OR 条件表达式n]
+[例如: SELECT * FROM t_student WHERE age = 11 OR age = 12;]
+
+// 10.DISTINCT去重复查询
+SELECT DISTINCT 字段名 FROM 表名;
+[例如: SELECT DISTINCT gradeName FROM t_student;]
+
+// 11.对查询结果排序
+SELECT 字段1, 字段2, 字段3... ,字段n FROM 表名 ORDER BY 属性名 [ASC | DESC]
+ASC: 升序[默认]
+DESC: 降序
+[例如: SELECT * FROM t_student ORDER BY age DESC;]
+
+// 12.GROUP BY分组查询
+GROUP BY 属性名 [HAVING 条件表达式] [WITH ROLLUP]
+	1.单独使用(毫无意义)
+[例如: SELECT * FROM t_student GROUP BY id;]
+	2.与GROUP_CONCAT()函数一起使用
+[例如: SELECT gradeName, GROUP_CONCAT(stuName) FROM t_student GROUP BY gradeName;]
+[结果:	gradeName		GROUP_CONCAT(stuName)
+		一年级			张三, 小智慧
+		三年级			小刚, 小红
+		二年级			李四, 王五, 小明
+		四年级			赵六
+]
+	3.与聚合函数一起使用
+[例如: SELECT gradeName, COUNT(stuName) FROM t_student GROUP BY gradeName;]
+[结果:	gradeName		COUNT(stuName)
+		一年级			2
+		三年级			2
+		二年级			3
+		四年级			1
+]
+	4.与HAVING一起使用(限制输出的结果)
+[例如: SELECT gradeName, COUNT(stuName) FROM t_student GROUP BY gradeName HAVING COUNT(stuName) = 2;]
+[结果:	gradeName		COUNT(stuName)
+		一年级			2
+		三年级			2
+]
+	5.与WITH ROLLUP一起使用(最后加入一个总和行)
+[例如1: SELECT gradeName, COUNT(stuName) FROM t_student GROUP BY gradeName WITH ROLLUP;]
+[结果:	gradeName		COUNT(stuName)
+		一年级			2
+		三年级			2
+		二年级			3
+		四年级			1
+		Null			8
+]
+[例如2: SELECT gradeName, GROUP_CONCAT(stuName) FROM t_student GROUP BY gradeName WITH ROLLUP;]
+[结果:	gradeName		GROUP_CONCAT(stuName)
+		一年级			张三, 小智慧
+		三年级			小刚, 小红
+		二年级			李四, 王五, 小明
+		四年级			赵六
+		Null			张三, 小智慧,小刚, 小红,李四, 王五, 小明,赵六
+]
+	6. LIMIT分页查询
+SELECT 字段1, 字段2,... ,字段n FROM 表名 LIMIT 初始位置, 记录数
+[例如: 	SELECT * FROM t_student LIMIT 0, 5; // 查询第0, 1, 2, 3, 4条(共5条)数据
+		SELECT * FROM t_student LIMIT 5, 5;// 查询第5, 6, 7, 8, 9条(共5条)数据
+](显示数据量按实际存在条数为准)
+
+

@@ -1,0 +1,122 @@
+// 流程控制的使用
+
+// 1.IF语句
+IF search_condition THEN statement_list
+	[ELSEIF search_condition THEN statement_list]...
+	[ELSE statement_list]
+END IF
+[例如:
+DELIMITER |
+CREATE PROCEDURE pro_user5(IN bookId INT)
+	BEGIN
+	SELECT COUNT(*) INTO @num FROM t_user WHERE id = bookId;
+	IF @num>0 THEN UPDATE t_user SET userName = "查到你" WHERE id = bookId;
+	ELSE
+		INSERT INTO t_user VALUES (NULL, '344324', '3243234');
+	END IF;
+	END
+|
+DELIMITER ;
+]
+
+// 2.CASE语句
+CASE case_value
+	WHEN when_value THEN statement_list
+	[WHEN when_value THEN statement_list]...
+	[ELSE statement_list]
+END CASE
+[例如:
+DELIMITER |
+CREATE PROCEDURE pro_user6(IN bookId INT)
+	BEGIN
+	SELECT COUNT(*) INTO @num FROM t_user WHERE id = bookId;
+	CASE @num
+	WHEN 1 THEN UPDATE t_user SET userName = "查到你1" WHERE id = bookId;
+	WHEN 0 THEN INSERT INTO t_user VALUES (NULL, '344324111', '3243234111');
+	ELSE INSERT INTO t_user VALUES (NULL, '344324111', '3243234111');
+	END CASE;
+	END
+|
+DELIMITER ;
+]
+
+// LOOP, LEAVE语句
+LOOP语句可以使某些特定的语句重复执行, 实现一个简单的循环. 
+但是LOOP语句本身没有停止循环的语句, 必须遇到LEAVE语句才能停止循环
+[begin_label: ]LOOP
+	Statement_list
+END LOOP[end_label]
+
+LEAVE语句用于跳出循环控制
+LEAVE label
+
+[例如:
+DELIMITER |
+CREATE PROCEDURE pro_user7(IN bookId INT, totalNum INT)
+	BEGIN
+		aaa:LOOP
+			SET totalNum = totalNum - 1;
+			IF totalNum = 0 THEN LEAVE aaa;
+			ELSE INSERT INTO t_user VALUES (NULL, 'xxxxxx', 'xxxxxxxx');
+			END IF;
+		END LOOP aaa;
+	END
+|
+DELIMITER ;
+]
+
+// ITERATE语句
+跳出本次循环, 直接进入下一次循环
+ITERATE label;
+[例如:
+DELIMITER |
+CREATE PROCEDURE pro_user8(IN bookId INT, totalNum INT)
+	BEGIN
+		aaa:LOOP
+			SET totalNum = totalNum - 1;
+			IF totalNum = 0 THEN LEAVE aaa;
+			ELSEIF totalNum = 3 THEN ITERATE aaa;
+			END IF;
+			INSERT INTO t_user VALUES (NULL, 'xxxxxx', 'xxxxxxxx');
+		END LOOP aaa;
+	END
+|
+DELIMITER ;
+]
+
+// REPEAT语句
+满足特定条件时, 调出循环语句
+[begin_label:] REPEAT
+	Statement_list
+	UNTIL search_condition
+END REPEAT [end_label]
+[例如:
+DELIMITER |
+CREATE PROCEDURE pro_user8(IN bookId INT, totalNum INT)
+	BEGIN
+		REPEAT
+			SET totalNum = totalNum - 1;
+			INSERT INTO t_user VALUES (NULL, 'xxxxxx', 'xxxxxxxx');
+			UNTIL totalNum = 1;
+		END REPEAT;
+	END
+|
+DELIMITER ;
+]
+
+// WHILE语句
+[begin_label: ]WHILE search_condition DO
+	Statement_list
+END WHILE[end_label]
+[例如:
+DELIMITER |
+CREATE PROCEDURE pro_user8(IN bookId INT, totalNum INT)
+	BEGIN
+		WHILE totalNum > 0 DO
+			SET totalNum = totalNum - 1;
+			INSERT INTO t_user VALUES (NULL, 'xxxxxx', 'xxxxxxxx');
+			END WHILE;
+	END
+|
+DELIMITER ;
+]

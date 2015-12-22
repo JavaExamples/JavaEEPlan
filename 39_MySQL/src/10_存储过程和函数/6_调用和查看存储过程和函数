@@ -1,0 +1,10 @@
+// 1.调用存储过程
+CALL sp_name([parameter[,...]])
+// 2.调用存储函数
+func_name([parameter[,...]])
+
+// 3.查看存储过程和函数
+SHOW STATUS语句查看存储过程和函数的状态
+SHOW {PROCEDURE | FUNCTION} STATUS [LIKE 'pattern'];
+SHOW CREATE 语句查看存储过程的函数定义
+SHOW CREATE {PROCEDURE | FUNCTION} sp_name;

@@ -1,0 +1,30 @@
+// 常用函数
+
+// 日期和时间函数
+CURDATE() 返回当前日期
+CURTIME() 返回当前时间
+MONTH(D)  返回日期D中的月份值, 范围是1~12
+[例如: SELECT CURDATE(), CURTIME(), MONTH(birthday) AS 月份 FROM t_t;]
+
+// 字符串函数
+CHAR_LENGTH(S) 计算字符串S的字符数
+UPPER(S) 把所有字母转大写
+LOWER(S) 把所有字母转小写
+[例如: SELECT name, CHAR_LENGTH(name), UPPER(name), LOWER(name) FROM t_t;]
+
+// 数学函数
+ABS(X) 绝对值
+[例如: SELECT number, ABS(number) AS 绝对值 FROM t_t;]
+SQRT(X) 平方根
+[例如: SELECT SQRT(4) FROM t_t;]
+MOD(X, Y) 求余
+[例如: SELECT MOD(9, 4) FROM t_t;]
+
+// 加密函数
+PASSWORD(STR) 对用户的密码加密, 不可逆
+MD5(STR) 普通加密, 不可逆
+[例如: INSERT INTO t_t VALUES (NULL, '2013-1-1', 'Guibs82', 1, MD5('111'));]
+ENCODE(STR, PSWD_STR) 加密函数, 结果是一个二进制数, 必须使用BLOB类型的字段存储
+[例如: INSERT INTO t_t VALUES (NULL, '2013-1-1', 'Guibs82', 1, MD5('111'), ENCODE("123456",'AA'));]
+DECODE(CRYPT_STR, PSWD_STR) 解密函数
+[例如: SELECT DECODE(PP,'AA') FROM t_t WHERE id = 4;]

@@ -1,0 +1,48 @@
+// 聚合函数
+	// 创建表
+CREATE TABLE `t_grade` (
+	`id` int,
+	`stuName` VARCHAR(60),
+	`course` VARCHAR(60),
+	`score` INT
+);
+	// 插入数据
+INSERT INTO `t_grade` (`id`, `stuName`, `course`, `score`) VALUES (1, '张三', '语文', 91);
+INSERT INTO `t_grade` (`id`, `stuName`, `course`, `score`) VALUES (1, '张三', '数学', 90);
+INSERT INTO `t_grade` (`id`, `stuName`, `course`, `score`) VALUES (1, '张三', '英语', 87);
+INSERT INTO `t_grade` (`id`, `stuName`, `course`, `score`) VALUES (1, '李四', '语文', 79);
+INSERT INTO `t_grade` (`id`, `stuName`, `course`, `score`) VALUES (1, '李四', '数学', 95);
+INSERT INTO `t_grade` (`id`, `stuName`, `course`, `score`) VALUES (1, '李四', '英语', 80);
+INSERT INTO `t_grade` (`id`, `stuName`, `course`, `score`) VALUES (1, '王五', '语文', 77);
+INSERT INTO `t_grade` (`id`, `stuName`, `course`, `score`) VALUES (1, '王五', '数学', 81);
+INSERT INTO `t_grade` (`id`, `stuName`, `course`, `score`) VALUES (1, '王五', '英语', 89);
+	
+// 1.COUNT()函数
+	1. COUNT()函数用来统计记录的条数
+[例如: SELECT COUNT(*) AS total FROM t_grade;]([AS 自定义字段名])
+	2. 与GROUP BY 关键字一起使用
+[例如: SELECT stuName, COUNT(*) AS total FROM t_grade GROUP BY stuName;]
+
+// 2.SUM()函数
+	1. SUM()函数是求和函数
+[例如: SELECT stuName, SUM(score) AS 总分 FROM t_grade WHERE stuName = "张三";](张三的总分)
+	2. 与GROUP BY 关键字一起使用
+[例如: SELECT stuName, SUM(score) AS 总分 FROM t_grade GROUP BY stuName;](每个人的总分)
+
+// 3.AVG()函数
+	1. AVG()函数是求平均值的函数
+[例如: SELECT stuName, AVG(score) AS 平均分 FROM t_grade WHERE stuName = "张三";](张三的平均分)
+	2. 与GROUP BY关键字一起使用
+[例如: SELECT stuName, AVG(score) AS 平均分 FROM t_grade GROUP BY stuName;](每个人的平均分)
+
+// 4.MAX()函数
+	1. MAX()函数是求最大值的函数
+[例如: SELECT stuName, MAX(score) AS 最高分 FROM t_grade WHERE stuName = "张三";](张三最高分)
+	2. 与GROUP BY关键字一起使用
+[例如: SELECT stuName, MAX(score) AS 最高分 FROM t_grade GROUP BY stuName;](每个人的最高分)
+
+// 5.MIN()函数
+	1. MIN()函数是求最小值的函数
+[例如: SELECT stuName, MIN(score) AS 最高分 FROM t_grade WHERE stuName = "张三";](张三的最低分)
+	2. 与GROUP BY关键字一起使用
+[例如: SELECT stuName, MIN(score) AS 最高分 FROM t_grade GROUP BY stuName;](每个人的最低分)

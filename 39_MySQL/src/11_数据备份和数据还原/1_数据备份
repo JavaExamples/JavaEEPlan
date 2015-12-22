@@ -1,0 +1,17 @@
+// 数据备份
+
+// 1.使用mysqldump命令
+mysqldump -u username -p dbname table1 table2 ... > BackupName.sql
+dbname: 数据库的名称
+table1, table2: 表的名称 (没有该参数时, 备份整个数据库)
+BackupName.sql参数表示备份文件的名称, 文件名前可以加一个绝对路径. 通常以.sql作为后缀.
+
+// 2.使用图形工具
+
+
+// 数据还原
+// 1.使用mysql命令还原
+Mysql -u root -p [dbname] < backup.sql
+dbname: 数据库名(指定时, 表示还原该数据库下的表; 不指定时, 表示还原特定的一个数据库.)
+
+// 2.使用图形工具

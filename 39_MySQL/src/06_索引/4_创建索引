@@ -1,0 +1,25 @@
+// 创建索引
+
+// 1.创建表的适合创建索引
+CREATE TABLE 表名	(属性名 数据类型 [完整性约束条件],
+					 属性名 数据类型 [完整性约束条件],
+					 ...
+					 属性名 数据类型 [完整性约束条件]
+					 [UNIQUE | FULLTEXT | SPATIAL] INDEX | KEY
+					 	[别名](属性名1[(长度)] [ASC | DESC])
+					 );
+[例如1: CREATE TABLE t_user1(id INT, userName VARCHAR(20), password VARCHAR(20), INDEX 索引名(userName));]
+[例如2: CREATE TABLE t_user2(id INT, userName VARCHAR(20), password VARCHAR(20), UNIQUE INDEX (userName));](唯一性索引)
+[例如3: CREATE TABLE t_user3(id INT, userName VARCHAR(20), password VARCHAR(20), UNIQUE INDEX 索引名(userName, password));](多列索引)
+
+// 2.在已存在的表上创建索引
+CREATE [UNIQUE | FULLTEXT | SPATIAL] INDEX 索引名 ON 表名 (属性名 [(长度)] [ASC | DESC])
+[例如1: CREATE INDEX 索引名1 ON t_user4(userName);]
+[例如2: CREATE UNIQUE INDEX 索引名2 ON t_user4(userName);]
+[例如3: CREATE INDEX 索引名3 ON t_user4(userName, password);]
+
+// 3.用ALTER TABLE创建索引
+ALTER TABLE 表名 ADD [UNIQUE | FULLTEXT | SPATIAL] INDEX 索引名 (属性名 [(长度)] [ASC | DESC])
+[例如1: ALTER TABLE t_user5 ADD INDEX 索引名(userName);]
+[例如2: ALTER TABLE t_user5 ADD UNIQUE INDEX 索引名(userName);]
+[例如3: ALTER TABLE t_user5 ADD UNIQUE INDEX 索引名2(userName, password);]

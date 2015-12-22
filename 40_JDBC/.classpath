@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="1_JDBC概述"/>
+	<classpathentry kind="src" path="2_JDBC连接数据库"/>
+	<classpathentry kind="src" path="3_Statement接口"/>
+	<classpathentry kind="src" path="4_PreparedStatement接口"/>
+	<classpathentry kind="src" path="5_ResultSet结果集"/>
+	<classpathentry kind="src" path="6_处理大数据对象(CLOB, BLOB)"/>
+	<classpathentry kind="src" path="7_CallableStatement接口调用存储过程"/>
+	<classpathentry kind="src" path="8_使用元数据分析数据库"/>
+	<classpathentry kind="src" path="9_JDBC事务处理"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="/Users/guibs/Documents/Software/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,4 @@
+// 删除索引
+
+DROP INDEX 索引名 ON 表名
+[例如: DROP INDEX 索引名 ON t_user5;]

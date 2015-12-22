@@ -1,0 +1,32 @@
+// 创建与使用触发器
+// 1.创建只有一个执行语句的触发器
+CREATE TRIGGER 触发器名 BEFORE | AFTER 触发事件 ON 表名 FOR EACH ROW 执行语句
+[例如:
+	// 添加触发器
+	 	CREATE TRIGGER 触发器1 AFTER INSERT
+	   		ON t_book FOR EACH ROW
+	 			UPDATE t_booktype SET bookNum = bookNum + 1 WHERE new.bookTypeId = t_booktype.id;
+	//PS: new.bookTypeId 表示新插入数据的bookTypeId (old. 同理)
+	// 触发器验证测试
+	INSERT INTO t_book VALUES (NULL, '触发器测试', 100, 'test', 3);
+]
+
+// 2.创建有多个执行语句的触发器
+CREATE TRIGGER 触发器名 BEFORE | AFTER 触发事件 ON 表名 FOR EACH ROW
+					   BEGIN
+					   		执行语句列表
+					   END
+[例如:
+	// 创建触发器
+	delimiter | --用| 作为结束符
+	CREATE TRIGGER 触发器2 AFTER DELETE ON t_book FOR EACH ROW
+	BEGIN
+	UPDATE t_booktype SET bookNum = bookNum - 1 WHERE old.bookTypeId = t_booktype.id;
+	INSERT INTO t_log VALUES(NULL, NOW(), 'DELETE A ROW IN t_book');
+	DELETE FROM t_test WHERE old.bookTypeId = t_test.id;
+	END
+	|
+	delimiter ; --用; 作为结束符
+	// 触发器测试
+	delete from t_book where id = 1;
+]

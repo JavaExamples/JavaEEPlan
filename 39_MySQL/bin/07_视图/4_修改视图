@@ -1,0 +1,15 @@
+// 修改视图
+
+1. CREATE OR REPLACE VIEW语句修改视图
+CREATE OR REPLACE [ALGORITHM = {UNDEFINED | MERGE | TEMPTABLE}]
+				   VIEW 视图名 [(属性清单)]
+				   AS SELECT语句
+				   [WITH [CASCADE | LOCAL] CHECK OPTION];
+[例如: CREATE OR REPLACE VIEW V1(bookName, price, bookTypeId) AS SELECT bookName, price, bookTypeId FROM t_book;]
+
+2. ALTER语句修改视图
+ALTER [ALGORITHM = {UNDEFINED | MERGE | TEMPTABLE}]
+	   VIEW 视图名 [(属性清单)]
+	   AS SELECT语句
+	   [WITH [CASCADED | LOCAL] CHECK OPTION];
+[例如: ALTER VIEW v1 AS SELECT * FROM t_book;]

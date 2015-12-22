@@ -1,0 +1,38 @@
+// 变量的使用
+// 1.定义变量
+DECLARE var_name[,...] type [DEFAULT value]
+[例如1:
+DELIMITER |
+CREATE PROCEDURE pro_user()
+BEGIN
+	DECLARE a, b VARCHAR(20);
+	INSERT INTO t_user VALUES (NULL, a, b);
+END
+|
+DELIMITER ;
+]
+
+// 2.为变量赋值
+SET var_name = expr[, var_name = expr]...
+SELECT col_name[,...] INTO var_name[,...] FROM table_name WHERE condition
+[例如1:
+DELIMITER |
+CREATE PROCEDURE pro_user2()
+BEGIN
+	DECLARE a, b VARCHAR(20);
+	SET a = "aaa", b = "123456";
+	INSERT INTO t_user VALUES (NULL, a, b);
+END
+|
+]
+[例如2:
+DELIMITER |
+CREATE PROCEDURE pro_user3()
+BEGIN
+	DECLARE a, b VARCHAR(20);
+	SELECT userName2, password2 INTO a, b FROM t_user2 WHERE id2 = 2;
+	INSERT INTO t_user VALUES (NULL, a, b);
+END
+|
+DELIMITER ;
+]

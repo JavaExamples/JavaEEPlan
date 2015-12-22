@@ -1,0 +1,31 @@
+// 游标的使用
+查询语句能查询出多条记录, 在存储过程和函数中使用游标来逐条读取查询结果集中的记录.
+游标的使用包括声明游标, 打开游标, 使用游标和关闭游标.
+游标必须声明在处理程序之前, 并且声明在变量和条件后.
+
+// 1.声明游标
+DECLARE cursor_name CURSOR FOR select_statement
+// 2.打开游标
+OPEN cursor_name
+// 3.使用游标
+FETCH cursor_name INTO var_name[, var_name...];
+// 4.关闭游标
+CLOSE cursor_name
+[例如:
+DELIMITER |
+CREATE PROCEDURE pro_user4()
+BEGIN
+	DECLARE a, b VARCHAR(20);
+	-- 声明游标
+	DECLARE cur_t_user2 CURSOR FOR SELECT userName2, password2 FROM t_user2;
+	-- 打开游标
+	OPEN cur_t_user2;
+	-- 使用游标
+	FETCH cur_t_user2 INTO a, b;
+	INSERT INTO t_user VALUES (NULL, a, b);
+	-- 关闭游标
+	CLOSE cur_t_user2;
+END
+|
+DELIMITER ;
+]

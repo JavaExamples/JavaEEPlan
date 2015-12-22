@@ -1,0 +1,13 @@
+// 插入数据
+// 1.给表的所有字段插入数据
+INSERT INTO 表名 VALUES (值1, 值2, 值3, ..., 值n);
+[例如: INSERT INTO t_book VALUES (NULL, '我爱我家', 20, '张三', 1);]
+
+// 2.给表的指定字段插入数据
+INSERT INTO 表名(属性1, 属性2, ..., 属性n) VALUES (值1, 值2, 值3, ...,值n);
+[例如1: INSERT INTO t_book(id, bookName, price, author, bookTypeId) VALUES (NULL, '我爱我家', 20, '张三', 1);]
+[例如2: INSERT INTO t_book(bookName, author) VALUES ('我爱我家','张三');]
+
+// 3.同时插入多条记录
+INSERT INTO 表名(属性1, 属性2, ..., 属性n) VALUES (取值列表1), (取值列表2),...,(取值列表n);
+[例如: INSERT INTO t_book(id, bookName, price, author, bookTypeId) VALUES (NULL, '我爱我家1', 20, '张三', 1), (NULL, '我爱我家2', 20, '张三', 1);]

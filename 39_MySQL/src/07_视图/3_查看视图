@@ -1,0 +1,10 @@
+// 查看视图
+
+// 1.DESCRIBE(DESC)语句查看视图基本信息
+[例如: DESC 视图名4;]
+// 2.SHOW TABLE STATUS语句查看视图基本信息(也可查看表)
+[例如: SHOW TABLE STATUS LIKE "视图名4";]
+// 3.SHOW CREATE VIEW语句查看视图详细信息
+[例如: SHOW CREATE VIEW 视图名4;]
+// 4.在views表中查看视图信息
+[例如: ]
