@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>合并单元格</title>
+</head>
+<body>
+<table border="1">
+    <!--表头行-->
+    <tr>
+        <!--表头-->
+        <th>第一列</th>
+        <th>第二列</th>
+    </tr>
+    <!--第一行-->
+    <tr>
+        <!--第一行的列(合并第一第二列)-->
+        <td colspan="2">第一行第一列二列合并</td>
+    </tr>
+    <!--第二行-->
+    <tr>
+        <!-第二行的列(合并该行和下一行的该列)-->
+        <td rowspan="2">第二行三行第一列</td>
+        <td>第二行二列</td>
+    </tr>
+    <!--第三行-->
+    <tr>
+        <!--第三行的列-->
+        <td>第三行二列</td>
+    </tr>
+</table>
+</body>
+</html>
