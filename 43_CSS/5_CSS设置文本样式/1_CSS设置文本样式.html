@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS设置文本样式</title>
+    <style type="text/css">
+        p {
+            /*设置边框为1px 的红色实线*/
+            border: 1px red solid;
+
+            /*设置文字字体*/
+            font-family: "Apple SD Gothic Neo";
+
+            /*设置文字斜体*/
+            font-style: italic;
+
+            /*设置文字大小*/
+            font-size: 20px;
+
+            /*首行缩进*/
+            /*不被继承*/
+            text-indent: 2em;
+
+            /*设置单词间距*/
+            word-spacing: 20px;
+
+            /*设置字母间距*/
+            /*中文每个文字看做一个字母*/
+            letter-spacing: 20px;
+
+            /*设置文字行高*/
+            /*行高为该行高度是字体的多少倍*/
+            line-height: 1.5;
+
+            /*段落之间的距离*/
+            margin: 5px;
+
+            /*设置p内部元素与边框的距离*/
+            padding: 10px;
+
+            /*设置文本的水平位置*/
+            /*默认居左*/
+            text-align: center;
+
+            /*设置文字和文字颜色*/
+            color: teal;
+
+            /*设置背景颜色*/
+            background-color: whitesmoke;
+
+            /*设置段落垂直对齐方式*/
+
+        }
+
+        .p1 {
+            /*设置文字加粗*/
+            font-weight: bold;
+        }
+
+        .p1 .psc {
+            /*首字母转大写*/
+            text-transform: capitalize;
+
+            /*下划线*/
+            text-decoration: underline;
+        }
+
+        .p1 .psu {
+            /*所有字母转大写*/
+            text-transform: uppercase;
+
+            /*删除线*/
+            text-decoration: line-through;
+        }
+
+        .p1 .psl {
+            /*所有字母转小写*/
+            text-transform: lowercase;
+
+            /*上划线*/
+            text-decoration: overline;
+        }
+
+        .p2 {
+            /*设置文字不加粗*/
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+<p class="p1">
+    <span class="psn">good Good Study, Day Day Up</span><br>
+    <span class="psc">good Good Study, Day Day Up</span><br>
+    <span class="psu">good Good Study, Day Day Up</span><br>
+    <span class="psl">good Good Study, Day Day Up</span><br>
+</p>
+
+<p class="p2">
+    好好学习, 天天向上
+</p>
+</body>
+</html>

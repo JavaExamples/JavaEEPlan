@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS设置Table样式</title>
+    <style type="text/css">
+        .t {
+            border: 1px green solid;
+
+            /*设置单元格间距*/
+            border-spacing: 5px;
+
+            /*border-collapse: separate-分离(默认) collapse 合并*/
+            /*collapse下, spacing不管用*/
+            border-collapse: collapse;
+
+            /*设置表格宽度*/
+            width: 500px;
+
+            /*设置表格宽度解决方案为固定*/
+            /*默认auto, 跟随内容调节宽度*/
+            table-layout: fixed;
+        }
+
+        .t th {
+            border: 1px yellow solid;
+        }
+
+        .t td {
+            border: 1px blue solid;
+
+            /*设置单元格内容和边框之间的距离*/
+            padding: 5px;
+        }
+
+        .color {
+            /*隔行换色*/
+            background-color: blueviolet;
+        }
+
+        .color2 {
+            background-color: aliceblue;
+        }
+    </style>
+
+    <!--改变className 为color 的表格背景色-->
+    <script language="javascript">
+        function changeColor(obj) {
+            if (obj.className = "color") {
+                obj.className = "color2"
+            }
+        }
+    </script>
+</head>
+<body>
+<table class="t">
+    <caption>标题</caption>
+    <thead>
+    <td>表头1</td>
+    <td>表头2</td>
+    <td>表头3</td>
+    <td>表头4</td>
+    <td>表头5</td>
+    </thead>
+    <tbody>
+    <tr class="color" onmouseover="changeColor(this)">
+        <td>1-1</td>
+        <td>1-2</td>
+        <td>1-3</td>
+        <td>1-4</td>
+        <td>1-5</td>
+    </tr>
+    <tr>
+        <td>2-1</td>
+        <td>2-2</td>
+        <td>2-3</td>
+        <td>2-4</td>
+        <td>2-5</td>
+    </tr>
+    <tr class="color">
+        <td>3-1</td>
+        <td>3-2</td>
+        <td>3-3</td>
+        <td>3-4</td>
+        <td>3-5</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>a</th>
+        <th colspan="4">aaa</th>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>

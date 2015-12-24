@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子在标准流中的定位</title>
+</head>
+<body>
+<!--行内元素之间的水平margin-->
+<!--margin-right + margin-left-->
+<span style="margin-right: 10px">span1</span><span style="margin-left: 10px">span2</span>
+
+<!--块级元素的竖直margin-->
+<!--margin-top>margin-bootom? margin-top: margin-bootom-->
+<div style="margin-bottom: 10px">
+    div1
+</div>
+<div style="margin-top: 15px">
+    div2
+</div>
+
+<!--嵌套盒子之间的margin-->
+<!--子块的margin 将以父块的内容为参考-->
+<div style="margin: 10px">outer
+    <div style="margin-top: 20px">
+        inner
+    </div>
+</div>
+
+<!--margin 可以是负数-->
+</body>
+</html>

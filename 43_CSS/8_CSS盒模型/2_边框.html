@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框</title>
+    <style>
+        #outerBox1 {
+            border-width: 2px;
+            border-color: aqua;
+            border-style: solid;
+        }
+
+        #outerBox2 {
+            /*thick 为内置的粗边框*/
+            border: thick blue dashed;
+        }
+
+        #outerBox3 {
+            /*thick thin 为内置的粗 细 边框*/
+            border-top: thick yellow dashed;
+            border-bottom: thin red dashed;
+        }
+    </style>
+</head>
+<body>
+<div id="outerBox1">
+    内容1
+</div>
+
+<div id="outerBox2">
+    内容2
+</div>
+
+<div id="outerBox3">
+    内容3
+</div>
+</body>
+</html>

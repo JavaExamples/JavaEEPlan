@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS基本语法</title>
+    <!--内嵌式CSS-->
+    <!--CSS选择器 id > 类别 > 标签-->
+    <!--p 是标记选择器-->
+    <!--.className 是类别选择器-->
+    <!--#idName 是id选择器-->
+    <style>
+        p {
+            color: blueviolet;
+            font-size: 20px;
+        }
+
+        .className {
+            color: coral;
+            font-size: 25px;
+        }
+
+        #idName {
+            color: blue;
+            font-size: 30px;
+        }
+    </style>
+
+    <!--引入链接式CSS-->
+    <!--懒加载(用到才加载, 性能更高)-->
+    <link href="待链接式CSS.css" type="text/css" rel="stylesheet">
+
+    <!--导入导入式CSS-->
+    <!--全加载(直接导入所有的CSS, 影响性能)-->
+    <style>
+        @import url("待导入式CSS.css");
+    </style>
+</head>
+<body>
+
+<h1 style="color: red">优先级排序:行内样式&gt;链接式&gt;内嵌式&gt;导入式(链接是在后面)</h1>
+
+<h1 style="color: red">优先级排序:行内样式&gt;内嵌式&gt;导入式&gt;链接式(链接是在前面)</h1>
+
+<h2>后面的样式会覆盖前面的样式</h2>
+
+<p>内嵌式CSS标记选择器效果演示</p>
+
+<p class="className">内嵌式CSS类别选择器效果演示</p>
+
+<p class="className" id="idName">内嵌式CSSid选择器效果演示</p>
+
+<!--行内样式的p标签-->
+<p style="color: chartreuse; font-size: 15px;">行内样式CSS效果演示</p>
+
+<!--链接式CSS的p, 需要先引入链接式CSS-->
+<p class="lianjie">链接式CSS效果演示</p>
+
+<!--导入式CSS的p, 需要先导入导入式CSS-->
+<p class="daoru">导入式CSS效果演示</p>
+</body>
+</html>

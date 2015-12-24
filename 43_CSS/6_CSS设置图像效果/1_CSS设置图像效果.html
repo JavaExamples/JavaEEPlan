@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS设置图像效果</title>
+    <style type="text/css">
+        .i1 {
+            /*设置图片实线边框*/
+            border-width: 3px;
+            border-style: solid;
+            border-color: fuchsia;
+        }
+
+        .i2 {
+            /*设置图片虚线边框*/
+            border: 3px red dashed;
+        }
+
+        .i3 {
+            /*设置图片点画线边框*/
+            border: 3px darkcyan dotted;
+        }
+
+        .i4 {
+            /*设置图片边框*/
+            border-top: 6px red dashed;
+            border-bottom: 6px green double;
+            border-right: 6px fuchsia solid;
+            border-left: 6px yellow dotted;
+        }
+
+        .sfbv {
+            width: 100px;
+            height: 90px;
+        }
+
+        .sfpf {
+            /*相对于父窗体的百分比*/
+            /*若不设置宽, 会自动设置*/
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+<h3>实线边框</h3>
+<img src="Image/image.png" class="i1">
+
+<h3>虚线边框</h3>
+<img src="Image/image.png" class="i2">
+
+<h3>点画线边框</h3>
+<img src="Image/image.png" class="i3">
+
+<h3>不同边框</h3>
+<img src="Image/image.png" class="i4">
+
+<h3>图片缩放(指定值)</h3>
+<img src="Image/image.png" class="sfbv">
+
+<h3>图片缩放(父窗体百分比)</h3>
+
+<div style="border: 1px chartreuse solid">
+    <img src="Image/image.png" class="sfpf">
+</div>
+
+<div>
+    <p>文字和图片<img src="Image/image2.png" style="vertical-align: baseline">对齐方式---默认</p>
+    <p>文字和图片<img src="Image/image2.png" style="vertical-align: 20px">对齐方式---baseline:20px</p>
+    <p>文字和图片<img src="Image/image2.png" style="vertical-align: -20px">对齐方式---baseline:-20px</p>
+    <p>文字和图片<img src="Image/image2.png" style="vertical-align: bottom">对齐方式---bottom</p>
+    <p>文字和图片<img src="Image/image2.png" style="vertical-align: text-bottom">对齐方式---text-bottom</p>
+    <p>文字和图片<img src="Image/image2.png" style="vertical-align: text-top">对齐方式---text-top</p>
+    <p>文字和图片<img src="Image/image2.png" style="vertical-align: top">对齐方式---top</p>
+    <p>文字和图片<img src="Image/image2.png" style="vertical-align: middle">对齐方式---middle</p>
+    <p>文字和图片<img src="Image/image2.png" style="vertical-align: sub">对齐方式---sub</p>
+    <p>文字和图片<img src="Image/image2.png" style="vertical-align: super">对齐方式---super</p>
+</div>
+</body>
+</html>

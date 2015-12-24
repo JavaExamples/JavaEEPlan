@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用CSS伪类设置超链接样式</title>
+    <style type="text/css">
+        /*未被访问*/
+        a:link {
+            color: yellow;
+        }
+
+        /*被访问过*/
+        a:visited {
+            color: aqua;
+        }
+
+        /*鼠标放上*/
+        a:hover {
+            background-color: chocolate;
+        }
+
+        /*点击时*/
+        a:active {
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+<a href="https://github.com/Guibs82/JavaEEPlan">
+    JavaEEPlan
+</a>
+</body>
+</html>

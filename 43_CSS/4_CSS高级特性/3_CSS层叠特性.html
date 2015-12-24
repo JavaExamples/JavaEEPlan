@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS层叠特性</title>
+    <style>
+        p {
+            color: blue;
+        }
+        .red {
+            color: red;
+        }
+        #p3 {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<p>111111111</p>
+<p class="red">222222222</p>
+<p id="p3" class="red">333333333</p>
+<!--id不可重复, 此处为了证明行内样式>id选择器的优先级-->
+<p style="color: orange"; class="red" id="p3">444444444</p>
+</body>
+</html>

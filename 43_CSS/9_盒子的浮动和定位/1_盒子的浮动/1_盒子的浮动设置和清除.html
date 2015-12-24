@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子的浮动设置和清除</title>
+    <!--float: 设置浮动 默认none-->
+    <style type="text/css">
+        .parent {
+            background-color: yellow;
+            border: 1px solid red;
+            padding: 10px;
+        }
+
+        .d1 {
+            float: left;
+            background-color: gray;
+            border: 1px solid springgreen;
+            margin: 5px;
+        }
+
+        .d2 {
+            float: right;
+            height: 200px;
+            background-color: deepskyblue;
+            border: 1px solid rebeccapurple;
+            margin: 5px;
+        }
+
+        p {
+            /*clear: 清除浮动 默认none*/
+            /*不允许左边有悬浮*/
+            clear: left;
+            background-color: chartreuse;
+            border: 1px solid darkgreen;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="d1">盒子a</div>
+    <div class="d2">盒子b</div>
+    <p>
+        啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦
+    </p>
+</div>
+</body>
+</html>

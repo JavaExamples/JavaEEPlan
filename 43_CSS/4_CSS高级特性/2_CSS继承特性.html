@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS继承特性</title>
+    <style type="text/css">
+       .c {
+           color: red;
+       }
+    </style>
+</head>
+<body>
+<h1>Java技术</h1>
+<ul>
+    <!--li 的子节点都继承了li 的class 样式-->
+    <!--注意:并非所有样式都能继承-->
+    <li class="c">
+        网页基础
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ul>
+    </li>
+    <li>
+        动态网页
+    </li>
+    <li>
+        J2EE框架
+    </li>
+</ul>
+</body>
+</html>

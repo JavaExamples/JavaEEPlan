@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建简单的导航菜单(竖)</title>
+    <style type="text/css">
+        #navigation {
+            width: 120px;
+            font-family: "Apple Braille";
+            font-size: 14px;
+            text-align: right;
+        }
+
+        #navigation ul {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #navigation li {
+            border-bottom: 1px solid deepskyblue;
+        }
+
+        #navigation li a {
+            width: 120px;
+            display: block;
+            height: 1em;
+            padding: 5px 5px 5px 0.5em;
+            text-decoration: none;
+        }
+
+        #navigation li a:link, #navigation li a:visited {
+            background-color: blueviolet;
+            color: azure;
+        }
+
+        #navigation li a:hover {
+            background-color: darkmagenta;
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+<div id="navigation">
+    <ul>
+        <li><a href="#">主页</a></li>
+        <li><a href="#">Swift</a></li>
+        <li><a href="#">Java</a></li>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">简书</a></li>
+    </ul>
+</div>
+</body>
+</html>
