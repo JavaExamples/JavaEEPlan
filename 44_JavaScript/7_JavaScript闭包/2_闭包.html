@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+<!--本质上闭包就是将函数内部和外部连接起来的一座桥梁-->
+<script type="text/javascript">
+//    function func() {
+//        var a = 22;
+//        // 闭包
+//        function func2() {
+//            alert(++a);
+//        }
+//        return func2;
+//    }
+//
+//    var result = func();
+//    result();
+
+    var name = "window"
+    var object = {
+        name: "My Object",
+        getNameFunc: function() {
+            return function() {
+              alert(this.name + "1");
+            };
+        }
+    };
+    alert(object.name + "2");
+    alert(object.getNameFunc()() + "3");
+</script>
+
+<!--闭包的用途: 1.读取函数内部的变量 2.让这些变量始终保持在内存中-->
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量作用域</title>
+</head>
+<body>
+<script type="text/javascript">
+    var a = 22;
+    function  func() {
+        alert(a);
+    }
+    func();
+
+    function func2() {
+        var b = 1; // 若去掉var, 在func2() 执行后, alert(b)则可以执行
+        alert(b);
+    }
+    func2()
+    alert(b); // 无法执行, 因为b 为私有变量
+</script>
+</body>
+</html>

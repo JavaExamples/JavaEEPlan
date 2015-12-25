@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript选择循环语句</title>
+</head>
+<body>
+<script type="text/javascript">
+    // if-else
+    var a = 1;
+    if (a > 2) {
+        alert("a>2")
+    } else if (0 <= a <= 2) {
+        alert("0<=a<=2")
+    } else {
+        alert("a<0")
+    }
+    // switch
+    var d = "1"
+    switch (d) {
+        case 1:
+            alert("number 1");
+            break;
+        case "1":
+            alert("string 1");
+            break;
+        default:
+            alert("default")
+    }
+    // for循环
+    for (var i = 0; i < 10; i++) {
+        if (i==5) {
+            continue;
+        }
+        document.write(i + "<br>")
+    }
+    // while
+    var i = 0;
+    while (i < 10) {
+        document.write("i = " + i + "<br>");
+        i++;
+    }
+    // do-while
+    var j = 0;
+    do {
+        if (j==5) {
+            break;
+        }
+        document.write("j = " + j + "<br>");
+        j++;
+    } while (j < 10)
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript运算符</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 算术运算符 & 赋值运算符 & 字符串连接
+    var x = 10, y = 4;
+    document.write("x = " + x + " y = " + y + "<br>");
+    document.write("x + y = " + (x + y) + "<br>");
+    document.write("x - y = " + (x - y) + "<br>");
+    document.write("x * y = " + (x * y) + "<br>");
+    document.write("x / y = " + (x / y) + "<br>");
+    document.write("x % y = " + (x % y) + "<br>");
+    document.write("x++ = " + x++ + "<br>");
+    document.write("x = " + x + "<br>");
+    document.write("++y = " + ++y + "<br>");
+    document.write("y = " + y + "<br>");
+    // 比较运算符
+    var a = 10, b = "10";
+    document.write("a = " + a + " b = " + b + "<br>");
+    document.write("a==b的结果:" + (a == b) + "<br>");
+    // === 会判断类型是否相同
+    document.write("a===b的结果:" + (a === b) + "<br>");
+    document.write("a&lt;b的结果:" + (a < b) + "<br>");
+    document.write("a&lt=b的结果:" + (a <= b) + "<br>");
+    // 逻辑运算符
+    // && 两边都为true, 则结果为true
+    document.write("a&lt;11 && b&gt;11:" + (a < 11 && b > 11) + "<br>")
+    // || 一边为true, 则结果为true
+    document.write("a&lt;11 || b&gt;11:" + (a < 11 || b > 11) + "<br>")
+    // !false = true
+    document.write("!(a&lt;11):" + !(a < 11) + "<br>")
+    // 三目运算符
+    document.write("x&lt;11?x:y -->" + (x < 11 ? x : y) + "<br>")
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义对象</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 方式一
+    var marry = {
+                name: "marry",
+                age: 23,
+                shout: function () {
+                    alert("我是: " + this.name + ", 今年" + this.age);
+                }
+                ,
+                action: function () {
+                    alert("会吃");
+                }
+            }
+            ;
+    alert(marry.name);
+    alert(marry.age);
+    marry.shout();
+    marry.action();
+
+    // 方式二(构造方法)
+    function Dog(name, age) {
+        this.name = name;
+        this.age = age;
+        this.shout = function () {
+            alert("我是: " + this.name + ", 今年" + this.age);
+        };
+        this.action = function () {
+            alert("会吃")
+        };
+    }
+    var g = new Dog("g", 10);
+    alert(g.name);
+    alert(g.age);
+    g.shout();
+    g.action();
+</script>
+</body>
+</html>

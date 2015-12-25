@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性和方法</title>
+</head>
+<body>
+<script type="text/javascript">
+    function C() {
+        this.objPro = "对象属性";
+        C.prototype.objPro2 = "对象属性2";
+        var privatePro = "私有属性"; // 需用闭包获取
+
+        var privateFunc = function () {
+            alert("私有方法");
+        }
+
+        this.objFunc = function () {
+            alert("对象方法");
+        }
+
+        C.prototype.objFunc2 = function () {
+            alert("对象方法2");
+        }
+    }
+    C.classFunc = function() {
+        alert("类方法");
+    }
+
+    C.classPro = "类属性";
+    alert(C.classPro);
+    var c = new C();
+    alert(c.objPro2);
+
+    C.classFunc();
+    c.objFunc();
+    c.objFunc2();
+</script>
+</body>
+</html>

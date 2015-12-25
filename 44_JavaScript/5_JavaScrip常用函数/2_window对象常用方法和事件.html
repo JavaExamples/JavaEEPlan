@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window对象常用方法和事件</title>
+</head>
+<body>
+<script type="text/javascript">
+    function fzt() {
+        alert("5s爆炸");
+    }
+
+    // 设置5s后执行fzt方法(单次)
+    window.setTimeout("fzt()", 5000);
+
+    function addNum() {
+        document.write(new Date().getSeconds());
+    }
+
+    // 周期性执行方法
+    window.setInterval(addNum, 1000);
+
+    // 打开窗口
+    window.open("https://github.com/Guibs82/JavaEEPlan");
+
+    // 文档加载完毕后
+    window.onload = function() {
+        alert("文档加载完毕");
+    }
+
+    // 窗口大小改变
+    window.onresize = function() {
+        alert("窗体大小改变了")
+    }
+</script>
+</body>
+</html>

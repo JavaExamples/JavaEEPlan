@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作DOM节点</title>
+    <script type="text/javascript">
+        function updateDom() {
+            // 修改容器内容
+            document.getElementById("txt").innerHTML = "用户名"
+            document.getElementById("userName").value = "Add By JavaScript"
+        }
+
+        function addDom() {
+            var para1 = document.createElement("h1");
+            var node1 = document.createTextNode("...前....");
+            para1.appendChild(node1);
+            var para2 = document.createElement("h1");
+            var node2 = document.createTextNode("...后....");
+            para2.appendChild(node2);
+            // 获取parent, son1
+            var parent = document.getElementById("parent");
+            var son1 = document.getElementById("son1");
+            // 节点前添加
+            parent.insertBefore(para1, son1);
+            // 节点后追加
+            parent.appendChild(para2);
+        }
+
+        function removeDom() {
+            // 获取parent, son1
+            var parent = document.getElementById("parent");
+            var son1 = document.getElementById("son1");
+            parent.removeChild(son1);
+        }
+    </script>
+</head>
+<body>
+<div id="parent">
+    <div id="son1">
+        <font id="txt">:</font>
+        <input type="text" id="userName">
+    </div>
+</div>
+<input type="button" value="修改节点" onclick="updateDom()">
+<input type="button" value="添加节点" onclick="addDom()">
+<input type="button" value="删除节点" onclick="removeDom()">
+</body>
+</html>

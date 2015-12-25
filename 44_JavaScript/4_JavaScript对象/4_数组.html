@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组</title>
+</head>
+<body>
+<script type="text/javascript">
+    var arr = new Array();
+    var arr2 = new Array(3);
+    arr[0] = "a4";
+    arr[1] = "a2";
+    arr[2] = "a3";
+    arr[3] = "a1";
+    arr[4] = "a6";
+    arr[5] = "a5";
+
+    arr2[0] = "b1";
+    arr2[1] = "b2";
+    arr2[2] = "b3";
+
+    for(var i=0; i<arr.length; i++) {
+        document.write(arr[i] + "<br>");
+    }
+
+    for(var o in arr2) {
+        document.write(o + "  " + arr2[o] + "<br>");
+    }
+
+    // 排序
+    arr.sort();
+    for(var i=0; i<arr.length; i++) {
+        document.write(arr[i] + "<br>");
+    }
+
+    // 将数组转为字符串
+    document.write(arr.join() + "<br>");
+
+    // 合并数组元素
+    document.write(arr.concat(arr2) + "<br>");
+
+    // 点到数组元素
+    document.write(arr.reverse() + "<br>");
+
+</script>
+</body>
+</html>

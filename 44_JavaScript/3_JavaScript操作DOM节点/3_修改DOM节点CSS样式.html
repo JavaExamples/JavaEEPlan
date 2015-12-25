@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改DOM节点CSS样式</title>
+    <script type="text/javascript">
+        function changeCSS() {
+            var node = document.getElementById("cm");
+            node.style.color = "blue";
+        }
+    </script>
+</head>
+<body>
+<p id="cm">Code Monkey</p>
+<input type="button" value="change CSS color" onclick="changeCSS()">
+</body>
+</html>

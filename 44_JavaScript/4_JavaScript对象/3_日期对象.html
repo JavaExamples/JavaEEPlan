@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日期对象</title>
+</head>
+<body>
+<script type="text/javascript">
+    var date = new Date();
+    // 返回从1970.1.1至今的毫秒数
+    document.write(date.getTime() + "<br>");
+    // 以四位数字返回年份
+    document.write(date.getFullYear() + "<br>");
+    // 返回月份(0~11)
+    document.write(date.getMonth() + "<br>");
+    // 返回一个月中的某一天(1~31)
+    document.write(date.getDate() + "<br>");
+    // 返回小时(0~23)
+    document.write(date.getHours() + "<br>");
+    // 返回分钟(0~59)
+    document.write(date.getMinutes() + "<br>");
+    // 返回秒(0~59)
+    document.write(date.getSeconds() + "<br>");
+    // 返回一个周的某一天(0~6)[0:周天]
+    document.write(date.getDay() + "<br>");
+</script>
+</body>
+</html>
