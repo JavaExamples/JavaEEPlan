@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>45_JSP</display-name>
+	<welcome-file-list>
+		<welcome-file>1_Page.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>servletName</servlet-name>
+		<jsp-file>/5_四大作用域九大对象/7_Config.jsp</jsp-file>
+		<!-- 名为servletName 的servlet 的参数 -->
+		<init-param>
+			<param-name>initName1</param-name>
+			<param-value>initValue1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>initName2</param-name>
+			<param-value>initValue2</param-value>
+		</init-param>
+	</servlet>
+
+	<!-- url请求/ConfigServlet 则寻找名为servletName 的servlet, 即打开/5_四大作用域九大对象/7_Config.jsp -->
+	<servlet-mapping>
+		<servlet-name>servletName</servlet-name>
+		<url-pattern>/ConfigServlet</url-pattern>
+	</servlet-mapping>
+</web-app>
