@@ -1,0 +1,32 @@
+package com.classcontent.tag;
+
+import java.io.IOException;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.tagext.TagSupport;
+
+public class HelloWorldTag extends TagSupport {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	public int doStartTag() throws JspException {
+		// 获取JspWriter
+		JspWriter out = this.pageContext.getOut();
+		try {
+			// 向页面输出
+			out.println("Hello World");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return TagSupport.SKIP_BODY;// 结束标签
+	}
+	
+	
+	
+}

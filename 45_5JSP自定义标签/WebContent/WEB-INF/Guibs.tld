@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+	version="2.1">
+	<tlib-version>1.0</tlib-version>
+	<short-name>hello</short-name>
+
+	<tag>
+		<name>helloWrold</name>
+		<tag-class>com.classcontent.tag.HelloWorldTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+
+	<tag>
+		<name>helloWrold2</name>
+		<tag-class>com.classcontent.tag.HelloWorldTag2</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<!-- 是否支持EL表达式 -->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>iterate</name>
+		<tag-class>com.classcontent.tag.IterateTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<!-- 是否支持EL表达式 -->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>items</name>
+			<required>true</required>
+			<!-- 是否支持EL表达式 -->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>iterate2</name>
+		<tag-class>com.classcontent.tag.SimpleIterateTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<!-- 是否支持EL表达式 -->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<name>items</name>
+			<required>true</required>
+			<!-- 是否支持EL表达式 -->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+</taglib>
